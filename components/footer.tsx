@@ -66,7 +66,7 @@ export function Footer() {
         </div>
 
         {/* ---- Bottom copyright ---- */}
-        <div className="border-t border-white/10 mt-8 pt-8 text-center text-sm text-white/50">
+        <div className="border-t border-white/10 mt-8  pt-8 text-center text-sm text-white/50">
           <p>&copy; 2025 SmartConvo by Pentagon AI. All rights reserved.</p>
         </div>
       </div>
