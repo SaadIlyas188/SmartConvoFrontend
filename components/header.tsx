@@ -1,0 +1,215 @@
+// "use client"
+
+// import { useState, useEffect } from "react"
+// import Image from "next/image"
+// import { Button } from "./ui/button"
+// import Link from "next/link"
+
+// export function Header() {
+//   const [isScrolled, setIsScrolled] = useState(false)
+//   const [isVisible, setIsVisible] = useState(true)
+//   const [lastScrollY, setLastScrollY] = useState(0)
+//   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
+
+//   useEffect(() => {
+//     const handleScroll = () => {
+//       const currentScrollY = window.scrollY
+//       setIsScrolled(currentScrollY > 50)
+//       setIsVisible(!(currentScrollY > lastScrollY && currentScrollY > 100))
+//       setLastScrollY(currentScrollY)
+//     }
+
+//     window.addEventListener("scroll", handleScroll, { passive: true })
+//     return () => window.removeEventListener("scroll", handleScroll)
+//   }, [lastScrollY])
+
+//   const navItems = [
+//     {
+//       label: "Industries",
+//       href: "/industries",
+//       gradient: "radial-gradient(circle, rgba(6,182,212,0.15) 0%, rgba(8,145,178,0.06) 50%, rgba(21,94,117,0) 100%)",
+//     },
+//     {
+//       label: "About",
+//       href: "/about",
+//       gradient: "radial-gradient(circle, rgba(6,182,212,0.15) 0%, rgba(8,145,178,0.06) 50%, rgba(21,94,117,0) 100%)",
+//     },
+//     {
+//       label: "Contact",
+//       href: "/contact",
+//       gradient: "radial-gradient(circle, rgba(6,182,212,0.15) 0%, rgba(8,145,178,0.06) 50%, rgba(21,94,117,0) 100%)",
+//     },
+//   ]
+
+//   return (
+//     <header
+//       className={`
+//         fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ease-in-out
+//         ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"}
+//       `}
+//     >
+//       <div
+//         className={`
+//           flex items-center justify-center gap-6 px-6 py-3 rounded-2xl border transition-all duration-300 relative overflow-hidden
+//           ${
+//             isScrolled
+//               ? "bg-background/90 backdrop-blur-xl border-border/40 shadow-2xl"
+//               : "bg-background/95 backdrop-blur-lg border-border/30 shadow-lg"
+//           }
+//         `}
+//       >
+//         {/* Cyan Glow on Hover */}
+//         <div
+//           className="absolute -inset-2 bg-gradient-radial from-transparent via-cyan-500/10 to-transparent rounded-3xl z-0 pointer-events-none opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+//           style={{
+//             opacity: hoveredItem ? 1 : 0,
+//           }}
+//         />
+
+//         {/* ✅ Replaced LeLoLogo with Public Folder Logo */}
+//         <Link href="/" className="transform transition-transform duration-200 hover:scale-105 relative z-10">
+//           <Image
+//             src="/logo.png" // 👈 place your logo file name here (e.g. /smartconvo-logo.png)
+//             alt="SmartConvo Logo"
+//             width={140} // tweak these for your logo size
+//             height={40}
+//             priority
+//             className="object-contain"
+//           />
+//         </Link>
+
+//         {/* Navigation */}
+//         <nav className="hidden md:flex items-center gap-2 relative z-10">
+//           {navItems.map((item) => (
+//             <div
+//               key={item.label}
+//               className="relative"
+//               onMouseEnter={() => setHoveredItem(item.label)}
+//               onMouseLeave={() => setHoveredItem(null)}
+//             >
+//               <div
+//                 className="absolute inset-0 z-0 pointer-events-none transition-opacity duration-500 rounded-xl"
+//                 style={{
+//                   background: item.gradient,
+//                   opacity: hoveredItem === item.label ? 1 : 0,
+//                   transform: hoveredItem === item.label ? "scale(2)" : "scale(0.8)",
+//                   transition: "opacity 0.5s ease, transform 0.5s ease",
+//                 }}
+//               />
+//               <Link
+//                 href={item.href}
+//                 className="relative text-foreground/80 hover:text-cyan-500 transition-all duration-300 px-4 py-2 rounded-xl block"
+//               >
+//                 {item.label}
+//               </Link>
+//             </div>
+//           ))}
+//         </nav>
+
+//         {/* Auth Buttons */}
+//         <div className="flex items-center gap-3 relative z-10">
+//           <Button
+//             variant="ghost"
+//             size="sm"
+//             className="text-foreground/80 hover:text-foreground hover:bg-foreground/10 transition-all duration-200 rounded-xl"
+//           >
+//             Sign In
+//           </Button>
+//           <Button
+//             size="sm"
+//             className="bg-cyan-500 hover:bg-cyan-600 text-white transform transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/50 rounded-xl"
+//           >
+//             Get Started
+//           </Button>
+//         </div>
+//       </div>
+//     </header>
+//   )
+// }
+
+"use client"
+
+import { useState, useEffect } from "react"
+import Image from "next/image"
+import { Button } from "./ui/button"
+import Link from "next/link"
+
+export function Header() {
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null)
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 50)
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  const navItems = [
+    { label: "Home", href: "/" },
+    { label: "Industries", href: "/industries" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
+  ]
+
+  return (
+    <header
+      className={`
+        fixed top-0 left-0 w-full z-50 transition-all duration-300
+        ${isScrolled ? "bg-background/90 backdrop-blur-xl border-b border-border/40 shadow-xl" : "bg-transparent"}
+      `}
+    >
+      <div className="flex items-center justify-between px-10 py-4 w-full relative">
+        {/* ✅ Logo - more left aligned */}
+        <Link href="/" className="flex items-center gap-2 hover:opacity-90 transition-all ml-2">
+          <Image
+            src="/logo.png"
+            alt="SmartConvo Logo"
+            width={150}
+            height={45}
+            priority
+            className="object-contain"
+          />
+        </Link>
+
+        {/* ✅ Center Navigation */}
+        <nav className="hidden md:flex items-center gap-8">
+          {navItems.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              onMouseEnter={() => setHoveredItem(item.label)}
+              onMouseLeave={() => setHoveredItem(null)}
+              className={`relative text-foreground/80 transition-all duration-300 px-3 py-2 rounded-xl
+                ${hoveredItem === item.label ? "text-cyan-400" : "hover:text-cyan-400"}`}
+            >
+              {/* Cyan glow behind hovered item */}
+              <span
+                className="absolute inset-0 rounded-xl bg-cyan-500/10 blur-md opacity-0 transition-opacity duration-500"
+                style={{ opacity: hoveredItem === item.label ? 1 : 0 }}
+              />
+              <span className="relative z-10">{item.label}</span>
+            </Link>
+          ))}
+        </nav>
+
+        {/* ✅ Right-side Buttons */}
+        <div className="flex items-center gap-3">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="text-foreground/80 hover:text-foreground hover:bg-foreground/10 transition-all duration-200 rounded-xl"
+          >
+            Sign In
+          </Button>
+          <Button
+            size="sm"
+            className="bg-cyan-500 hover:bg-cyan-600 text-white transform transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/50 rounded-xl"
+          >
+            Get Started
+          </Button>
+        </div>
+      </div>
+    </header>
+  )
+}
+
