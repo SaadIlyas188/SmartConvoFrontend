@@ -12,6 +12,7 @@
     "@emotion/is-prop-valid": "latest",
     "@gsap/react": "2.1.2",
     "@hookform/resolvers": "^3.10.0",
+    "@netlify/plugin-nextjs": "^5.14.0",
     "@paper-design/shaders-react": "latest",
     "@radix-ui/react-accordion": "1.2.2",
     "@radix-ui/react-alert-dialog": "1.1.4",
