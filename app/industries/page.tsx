@@ -4,6 +4,7 @@ import BeamsBackground from "@/components/beams-background"
 import IndustriesAccordion from "@/components/industries-accordion"
 import IndustriesFeaturesSection from "@/components/industries-features-section"
 
+
 export default function IndustriesPage() {
   return (
     <div className="min-h-screen bg-black">
@@ -56,10 +57,35 @@ export default function IndustriesPage() {
         </div>
       </BeamsBackground>
 
+      {/* CTA Section */}
+<section className="py-20 sm:py-32">
+  <div className="mx-auto max-w-3xl">
+    <div className="text-center space-y-8 border border-white/10 rounded-2xl p-12 hover:border-cyan-500/30 transition-all duration-500 hover:shadow-[0_0_40px_rgba(6,182,212,0.1)]">
+      <h2 className="text-4xl sm:text-5xl font-light">
+        Ready to Transform Your Communication?
+      </h2>
+      <p className="text-base text-white/60 max-w-2xl mx-auto">
+        Join hundreds of businesses already using SmartConvo to deliver exceptional customer experiences 24/7.
+      </p>
+      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <button className="px-6 py-3 bg-cyan-500 hover:bg-cyan-600 text-black font-medium rounded-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] text-base">
+          Schedule a Demo
+        </button>
+        <button className="px-6 py-3 border border-white/20 hover:border-cyan-500/50 text-white rounded-lg transition-all duration-300 text-base">
+          Contact Sales
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      
+
       {/* ⬆️ Even more breathing room before footer */}
       <div className="mt-20">
         <Footer />
       </div>
+     
     </div>
   )
 }

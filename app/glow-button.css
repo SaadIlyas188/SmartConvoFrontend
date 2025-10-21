@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Space+Grotesk:400,700');
+
+:root {
+  --m: 4rem;
+  --red: #FF6565;
+  --pink: #FF64F9;
+  --purple: #6B5FFF;
+  --blue: #4D8AFF;
+  --green: #5BFF89;
+  --yellow: #FFEE55;
+  --orange: #FF6D1B;
+}
+
+/* Rainbow Glowing Button */
+.fancy-glow-button {
+  border: calc(0.08 * var(--m)) solid transparent;
+  position: relative;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: var(--m);
+  border-radius: calc(0.7 * var(--m));
+  padding: calc(0.5 * var(--m)) calc(1 * var(--m));
+  color: #f3f3f3;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(#121213, #121213),
+              linear-gradient(#121213 50%, rgba(18,18,19,0.6) 80%, rgba(18,18,19,0)),
+              linear-gradient(90deg, var(--orange), var(--yellow), var(--green), var(--blue), var(--purple), var(--pink), var(--red));
+  background-origin: border-box;
+  background-clip: padding-box, border-box, border-box;
+  background-size: 200%;
+  animation: animate 2s infinite linear;
+  transition: transform 0.1s ease-in-out;
+}
+
+.fancy-glow-button::before {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  z-index: -5;
+  height: 30%;
+  width: 60%;
+  background: linear-gradient(90deg, var(--orange), var(--yellow), var(--green), var(--blue), var(--purple), var(--pink), var(--red));
+  background-size: 200%;
+  animation: animate 2s infinite linear;
+  filter: blur(calc(0.8 * var(--m)));
+}
+
+.fancy-glow-button:hover,
+.fancy-glow-button:hover::before {
+  animation: animate 0.5s infinite linear;
+}
+
+.fancy-glow-button:hover { transform: scale(0.98); }
+.fancy-glow-button:active { transform: scale(0.95); }
+
+@keyframes animate {
+  0% { background-position: 0 }
+  100% { background-position: 200% }
+}
+
+@media screen and (max-width: 1000px) {
+  :root { --m: 2rem; }
+}
