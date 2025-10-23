@@ -96,11 +96,11 @@ export function DemoRequestForm({ onClose }: DemoRequestFormProps) {
   const handleCaptchaVerification = async (token: string | null) => {
     if (!token) return
     try {
-      const res = await fetch("/api/verify-captcha", {
+      const res = await fetch("/.netlify/functions/verify-captcha", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token }),
-      })
+        })
       const data = await res.json()
       if (data.success) {
         setFormData((prev) => ({ ...prev, captchaVerified: true }))
@@ -334,9 +334,10 @@ export function DemoRequestForm({ onClose }: DemoRequestFormProps) {
               <div className="text-center space-y-4">
                 <h2 className="text-lg font-semibold">Security Verification</h2>
                 <ReCAPTCHA
-                  sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
-                  onChange={handleCaptchaVerification}
-                />
+                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                    onChange={handleCaptchaVerification}
+                    />
+
                 <Button
                   onClick={handleSubmit}
                   disabled={!formData.captchaVerified || isSubmitting}
