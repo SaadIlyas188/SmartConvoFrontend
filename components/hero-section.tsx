@@ -70,10 +70,12 @@ export function HeroSection() {
             <Button
               size="lg"
               variant="outline"
+              onClick={() => window.open("https://smartconvo.netlify.app", "_blank")}
               className="border-neutral-600 text-white bg-black hover:bg-neutral-800 hover:text-white transition-colors duration-300"
             >
               Start Now
             </Button>
+
           </div>
 
           {/* Trusted By Section */}
