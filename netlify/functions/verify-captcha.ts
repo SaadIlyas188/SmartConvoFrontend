@@ -14,7 +14,8 @@ export const handler: Handler = async (event) => {
     )
     const data = await res.json()
 
-    if (data.success) {
+    if (data.success) 
+        {
       return { statusCode: 200, body: JSON.stringify({ success: true }) }
     } else {
       return { statusCode: 400, body: JSON.stringify({ success: false, error: data["error-codes"] }) }
