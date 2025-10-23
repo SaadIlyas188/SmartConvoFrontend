@@ -1,6 +1,26 @@
+# netlify.toml
+
 [build]
   command = "npm run build"
   publish = ".next"
+  functions = "netlify/functions"
 
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
+# Tell Netlify to ignore public keys in secrets scanning
+[build.environment]
+  NEXT_PUBLIC_RECAPTCHA_SITE_KEY = "6LfGR8srAAAAAKS7Nemzb54cFNNuHMe5ywkz-4Ce"
+  RECAPTCHA_SECRET_KEY = "6LfGR8srAAAAAOmh3BAhpvDA8zG-9YlQucckfq5P"
+
+[build.secrets_scan]
+  omit_keys = ["NEXT_PUBLIC_RECAPTCHA_SITE_KEY"]
+
+# Optional headers for caching, if needed
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[redirects]]
+  from = "/_next/image"
+  query = { q = ":quality", url = ":url", w = ":width" }
+  to = "/_next/image"
+  status = 200
