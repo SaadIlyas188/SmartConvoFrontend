@@ -7,7 +7,6 @@ import { ScrollText } from "@/components/scroll-text"
 import BackgroundPaths from "@/components/background-paths"
 import CyanInteractiveBackground from "@/components/interactive-background"
 
-
 export default function AboutPage() {
   const [activeSection, setActiveSection] = useState("")
   const sectionsRef = useRef<(HTMLElement | null)[]>([])
@@ -145,12 +144,7 @@ export default function AboutPage() {
         </header>
 
         {/* Company Story Timeline */}
-        <section
-          id="story"
-          ref={(el) => (sectionsRef.current[1] = el)}
-          className="min-h-[80vh] py-12 sm:py-16 opacity-0"
-
-        >
+        <section id="story" ref={(el) => (sectionsRef.current[1] = el)} className="min-h-0 py-10 sm:py-16 opacity-0">
           <div className="space-y-12 sm:space-y-16">
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
               <h2 className="text-4xl sm:text-5xl font-light">Our Journey</h2>
@@ -218,27 +212,15 @@ export default function AboutPage() {
         </section>
 
         {/* ScrollText Section */}
-<section className="min-h-[70vh] py-12">
-
-  <ScrollText
-    leftText="SmartConvo AI"
-    rightPhrases={[
-      "Thinks Human",
-  "Talks Smarter",
-  "Never Sleeps",
-  "Learns Fast",
-  "Redefines Voice",
-    ]}
-  />
-</section>
-
+        <section className="min-h-0 py-20 sm:py-24">
+          <ScrollText
+            leftText="SmartConvo AI"
+            rightPhrases={["Thinks Human", "Talks Smarter", "Never Sleeps", "Learns Fast", "Redefines Voice"]}
+          />
+        </section>
 
         {/* Mission & Vision */}
-        <section
-          id="mission"
-          ref={(el) => (sectionsRef.current[2] = el)}
-          className="min-h-screen py-20 sm:py-32 opacity-0"
-        >
+        <section id="mission" ref={(el) => (sectionsRef.current[2] = el)} className="min-h-0 py-24 sm:py-32 opacity-0">
           <div className="space-y-12 sm:space-y-16">
             <h2 className="text-4xl sm:text-5xl font-light">Mission & Vision</h2>
 
@@ -275,11 +257,7 @@ export default function AboutPage() {
         </section>
 
         {/* Team Capabilities */}
-        <section
-          id="team"
-          ref={(el) => (sectionsRef.current[3] = el)}
-          className="min-h-screen py-20 sm:py-32 opacity-0"
-        >
+        <section id="team" ref={(el) => (sectionsRef.current[3] = el)} className="min-h-0 py-20 sm:py-28 opacity-0">
           <div className="space-y-12 sm:space-y-16">
             <div className="space-y-4">
               <h2 className="text-4xl sm:text-5xl font-light">What We Bring</h2>
@@ -346,7 +324,7 @@ export default function AboutPage() {
         </section>
 
         {/* Core Values */}
-        <section id="values" ref={(el) => (sectionsRef.current[4] = el)} className="py-20 sm:py-32 opacity-0">
+        <section id="values" ref={(el) => (sectionsRef.current[4] = el)} className="py-20 sm:py-28 opacity-0">
           <div className="space-y-12 sm:space-y-16">
             <h2 className="text-4xl sm:text-5xl font-light">Our Values</h2>
 
@@ -391,7 +369,7 @@ export default function AboutPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 sm:py-32">
+        <section className="py-20 sm:py-28">
           <div className="text-center space-y-8 border border-white/10 rounded-2xl p-12 hover:border-cyan-500/30 transition-all duration-500 hover:shadow-[0_0_40px_rgba(6,182,212,0.1)]">
             <h2 className="text-4xl sm:text-5xl font-light">Ready to Transform Your Communication?</h2>
             <p className="text-base text-white/60 max-w-2xl mx-auto">

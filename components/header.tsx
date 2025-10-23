@@ -127,12 +127,14 @@
 //   )
 // }
 
+
+
 "use client"
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { Button } from "./ui/button"
 import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -153,39 +155,46 @@ export function Header() {
 
   return (
     <header
-      className={`
-        fixed top-0 left-0 w-full z-50 transition-all duration-300
-        ${isScrolled ? "bg-background/90 backdrop-blur-xl border-b border-border/40 shadow-xl" : "bg-transparent"}
-      `}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+        isScrolled
+          ? "bg-background/80 backdrop-blur-xl border-b border-border/40 shadow-lg"
+          : "bg-transparent backdrop-blur-none border-none"
+      }`}
     >
-      <div className="flex items-center justify-between px-10 py-4 w-full relative">
-        {/* ✅ Logo - more left aligned */}
-        <Link href="/" className="flex items-center gap-2 hover:opacity-90 transition-all ml-2">
+      <div className="flex items-center justify-between px-10 py-4 relative">
+        {/* ✅ Logo */}
+        <Link href="/" className="flex items-center gap-2 hover:opacity-90 transition-all ml-2 relative z-10">
           <Image
             src="/logo.png"
             alt="SmartConvo Logo"
             width={150}
             height={45}
             priority
-            className="object-contain"
+            className="object-contain drop-shadow-[0_0_8px_rgba(34,211,238,0.6)]"
           />
         </Link>
 
         {/* ✅ Center Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-8 relative">
           {navItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
               onMouseEnter={() => setHoveredItem(item.label)}
               onMouseLeave={() => setHoveredItem(null)}
-              className={`relative text-foreground/80 transition-all duration-300 px-3 py-2 rounded-xl
-                ${hoveredItem === item.label ? "text-cyan-400" : "hover:text-cyan-400"}`}
+              className={`relative text-foreground/80 px-3 py-2 font-medium transition-all duration-500 rounded-xl
+                ${hoveredItem === item.label ? "text-cyan-300" : "hover:text-cyan-400"}`}
             >
-              {/* Cyan glow behind hovered item */}
+              {/* Cyan glow halo */}
               <span
-                className="absolute inset-0 rounded-xl bg-cyan-500/10 blur-md opacity-0 transition-opacity duration-500"
-                style={{ opacity: hoveredItem === item.label ? 1 : 0 }}
+                className="absolute inset-0 rounded-xl bg-cyan-400/10 blur-xl opacity-0 transition-all duration-700 ease-out"
+                style={{
+                  opacity: hoveredItem === item.label ? 1 : 0,
+                  boxShadow:
+                    hoveredItem === item.label
+                      ? "0 0 20px 6px rgba(34,211,238,0.25)"
+                      : "none",
+                }}
               />
               <span className="relative z-10">{item.label}</span>
             </Link>
@@ -193,23 +202,31 @@ export function Header() {
         </nav>
 
         {/* ✅ Right-side Buttons */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 relative z-10">
           <Button
             variant="ghost"
             size="sm"
-            className="text-foreground/80 hover:text-foreground hover:bg-foreground/10 transition-all duration-200 rounded-xl"
+            className="text-foreground/80 hover:text-cyan-300 hover:bg-cyan-500/10 rounded-xl transition-all duration-300"
           >
             Sign In
           </Button>
           <Button
             size="sm"
-            className="bg-cyan-500 hover:bg-cyan-600 text-white transform transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/50 rounded-xl"
+            className="bg-cyan-500 hover:bg-cyan-600 text-white rounded-xl transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(34,211,238,0.6)]"
           >
             Get Started
           </Button>
         </div>
+
+        {/* ✅ Subtle full-header cyan glow on hover */}
+        <div
+          className="absolute -inset-2 bg-gradient-radial from-transparent via-cyan-500/10 to-transparent opacity-0 rounded-3xl pointer-events-none transition-all duration-700"
+          style={{
+            opacity: hoveredItem ? 1 : 0,
+            filter: "blur(20px)",
+          }}
+        />
       </div>
     </header>
   )
 }
-

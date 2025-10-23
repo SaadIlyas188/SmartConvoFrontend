@@ -5,6 +5,7 @@ import { PricingSection } from "@/components/pricing-section"
 import { FAQSection } from "@/components/faq-section"
 import { AnimatedCTASection } from "@/components/animated-cta-section"
 import { Footer } from "@/components/footer"
+import { ScrollTextSection } from "@/components/scroll-text-home"
 
 export default function HomePage() {
   return (
@@ -13,7 +14,11 @@ export default function HomePage() {
       <main className="pt-20">
         <HeroSection />
         <AnimatedFeaturesSection />
-        <PricingSection />
+        <ScrollTextSection />
+
+
+
+        {/* <PricingSection /> */}
         <FAQSection />
         <AnimatedCTASection />
       </main>

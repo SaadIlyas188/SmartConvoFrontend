@@ -68,11 +68,11 @@ export function ScrollText({ leftText, rightPhrases, className = "" }: ScrollTex
 
   if (!isClient) {
     return (
-      <div className={`min-h-screen flex items-center gap-8 px-16 py-28 ${className}`}>
+      <div className={`min-h-0 flex items-center gap-8 px-16 py-0 ${className}`}>
         <div className="flex-shrink-0">
           <h1 className="text-6xl max-lg:text-4xl font-semibold text-foreground leading-none">{leftText}</h1>
         </div>
-        <div className="flex-1 relative h-screen max-lg:h-[80vh] overflow-x-visible overflow-y-hidden">
+        <div className="flex-1 relative h-[400px] max-lg:h-[300px] overflow-x-visible overflow-y-hidden">
           <div className="absolute inset-0 flex flex-col justify-center">
             {rightPhrases.map((phrase, index) => (
               <div
@@ -92,12 +92,12 @@ export function ScrollText({ leftText, rightPhrases, className = "" }: ScrollTex
   }
 
   return (
-    <div ref={containerRef} className={`min-h-screen flex items-center gap-8 px-16 py-28 ${className}`}>
+    <div ref={containerRef} className={`min-h-0 flex items-center gap-8 px-16 py-0 ${className}`}>
       <div className="flex-shrink-0">
         <h1 className="text-6xl max-lg:text-4xl font-semibold text-foreground leading-none">{leftText}</h1>
       </div>
 
-      <div className="flex-1 relative h-screen max-lg:h-[80vh] overflow-visible">
+      <div className="flex-1 relative h-[400px] max-lg:h-[300px] overflow-visible">
         <div className="absolute inset-0 flex flex-col justify-center">
           {rightPhrases.map((phrase, index) => {
             const offset = (index - activeIndex) * (isClient && window.innerWidth < 1024 ? 60 : 70)
