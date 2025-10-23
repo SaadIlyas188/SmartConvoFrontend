@@ -207,12 +207,14 @@ export function Header() {
             variant="ghost"
             size="sm"
             className="text-foreground/80 hover:text-cyan-300 hover:bg-cyan-500/10 rounded-xl transition-all duration-300"
+            onClick={() => (window.location.href = "https://smartconvo.netlify.app")}
           >
             Sign In
           </Button>
           <Button
             size="sm"
             className="bg-cyan-500 hover:bg-cyan-600 text-white rounded-xl transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(34,211,238,0.6)]"
+            onClick={() => (window.location.href = "https://smartconvo.netlify.app/signup")}
           >
             Get Started
           </Button>
