@@ -1,11 +1,6 @@
 [build]
   command = "npm run build"
   publish = ".next"
-  functions = "netlify/functions"
-
-  [build.environment]
-    NEXT_PUBLIC_RECAPTCHA_SITE_KEY = "$NEXT_PUBLIC_RECAPTCHA_SITE_KEY"
-    RECAPTCHA_SECRET_KEY = "$RECAPTCHA_SECRET_KEY"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
