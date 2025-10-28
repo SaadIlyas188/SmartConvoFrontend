@@ -1,5 +1,7 @@
 "use client"
 
+import { useRef, useState } from "react"
+import emailjs from "@emailjs/browser"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { ContactGradientBackground } from "@/components/contact-gradient-background"
@@ -10,15 +12,46 @@ import { Mail, Phone, MapPin, Clock } from "lucide-react"
 import MetawareLogoParticles from "@/components/metaware-logo-particles"
 
 export default function ContactPage() {
+  const formRef = useRef<HTMLFormElement>(null)
+  const [isSending, setIsSending] = useState(false)
+  const [sent, setSent] = useState(false)
+  const [error, setError] = useState(false)
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSending(true)
+    setSent(false)
+    setError(false)
+
+    emailjs
+      .sendForm(
+        "service_0wptkk6",
+        "template_0x1wzok",
+        formRef.current!,
+        "1nvz4SCWKMu2KkTvT"
+      )
+      .then(
+        () => {
+          setIsSending(false)
+          setSent(true)
+          formRef.current?.reset()
+          setTimeout(() => setSent(false), 4000)
+        },
+        () => {
+          setIsSending(false)
+          setError(true)
+          setTimeout(() => setError(false), 4000)
+        }
+      )
+  }
+
   return (
     <div className="relative min-h-screen bg-black flex flex-col">
       {/* Background */}
-      {/* Background Layer */}
-<div className="absolute inset-0 z-0">
-  <ContactGradientBackground />
-  {/* Optional subtle dark overlay so text stays readable */}
-  <div className="absolute inset-0 bg-black/70" />
-</div>
+      <div className="absolute inset-0 z-0">
+        <ContactGradientBackground />
+        <div className="absolute inset-0 bg-black/70" />
+      </div>
 
       <Header />
 
@@ -28,7 +61,9 @@ export default function ContactPage() {
           <div className="text-center mb-12">
             <div className="mb-5 flex items-center justify-center gap-3">
               <div className="h-px w-12 bg-gradient-to-r from-transparent to-cyan-500"></div>
-              <span className="text-xs text-cyan-400 font-mono tracking-wider">CONTACT / 2025</span>
+              <span className="text-xs text-cyan-400 font-mono tracking-wider">
+                CONTACT / 2025
+              </span>
               <div className="h-px w-12 bg-gradient-to-l from-transparent to-cyan-500"></div>
             </div>
             <h1 className="text-5xl md:text-6xl font-light text-white mb-4 tracking-tight">
@@ -39,7 +74,8 @@ export default function ContactPage() {
             </h1>
             <p className="text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
               Ready to transform your customer communication? Let’s talk about how{" "}
-              <span className="text-cyan-400">SmartConvo</span> can help your business grow with AI-powered voice agents.
+              <span className="text-cyan-400">SmartConvo</span> can help your business grow with
+              AI-powered voice agents.
             </p>
           </div>
 
@@ -48,14 +84,16 @@ export default function ContactPage() {
             {/* Contact Form */}
             <div className="bg-zinc-900 border border-white/10 rounded-2xl p-8 hover:border-cyan-500/30 transition-all duration-500">
               <h2 className="text-2xl font-light text-white mb-6">Send us a message</h2>
-              <form className="space-y-6">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-white/90 mb-2">
                     Name
                   </label>
                   <Input
                     id="name"
+                    name="name"
                     placeholder="Your name"
+                    required
                     className="bg-black/40 border-white/10 text-white placeholder:text-white/40 focus:border-cyan-500/50 transition-colors"
                   />
                 </div>
@@ -65,8 +103,10 @@ export default function ContactPage() {
                   </label>
                   <Input
                     id="email"
+                    name="email"
                     type="email"
                     placeholder="your@email.com"
+                    required
                     className="bg-black/40 border-white/10 text-white placeholder:text-white/40 focus:border-cyan-500/50 transition-colors"
                   />
                 </div>
@@ -76,6 +116,7 @@ export default function ContactPage() {
                   </label>
                   <Input
                     id="company"
+                    name="company"
                     placeholder="Your company"
                     className="bg-black/40 border-white/10 text-white placeholder:text-white/40 focus:border-cyan-500/50 transition-colors"
                   />
@@ -86,13 +127,19 @@ export default function ContactPage() {
                   </label>
                   <Textarea
                     id="message"
+                    name="message"
                     placeholder="Tell us about your needs..."
                     rows={5}
+                    required
                     className="bg-black/40 border-white/10 text-white placeholder:text-white/40 focus:border-cyan-500/50 transition-colors resize-none"
                   />
                 </div>
-                <Button className="w-full bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white font-medium transition-all duration-300 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)]">
-                  Send Message
+                <Button
+                  type="submit"
+                  disabled={isSending}
+                  className="w-full bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white font-medium transition-all duration-300 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)]"
+                >
+                  {isSending ? "Sending..." : sent ? "Message Sent!" : error ? "Error!" : "Send Message"}
                 </Button>
               </form>
             </div>
@@ -100,21 +147,9 @@ export default function ContactPage() {
             {/* Contact Info */}
             <div className="space-y-6">
               {[
-                {
-                  icon: Mail,
-                  title: "Email",
-                  detail: "contact@pentagonai.ca",
-                },
-                {
-                  icon: Phone,
-                  title: "Phone",
-                  detail: "+1 (647) 123-4567",
-                },
-                {
-                  icon: MapPin,
-                  title: "Location",
-                  detail: "Toronto, Ontario, Canada",
-                },
+                { icon: Mail, title: "Email", detail: "contact@pentagonai.ca" },
+                { icon: Phone, title: "Phone", detail: "+1 (647) 123-4567" },
+                { icon: MapPin, title: "Location", detail: "Toronto, Ontario, Canada" },
               ].map((item, index) => (
                 <div
                   key={index}
@@ -161,15 +196,13 @@ export default function ContactPage() {
         </div>
       </main>
 
-      {/* Particle Logo Section */}
       <section className="relative w-full h-[60vh] flex items-center justify-center -mt-10 mb-0">
         <MetawareLogoParticles />
       </section>
 
       <div className="relative z-50">
-  <Footer />
-</div>
-
+        <Footer />
+      </div>
     </div>
   )
 }

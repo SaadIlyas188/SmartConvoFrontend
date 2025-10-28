@@ -21,7 +21,9 @@ export function HeroSection() {
         className="fixed right-4 top-1/2 -translate-y-1/2 z-50 group"
         aria-label={isFormOpen ? "Close demo form" : "Open demo form"}
       >
-        <div className="bg-cyan-500/80 hover:bg-cyan-400 backdrop-blur-sm text-white p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110 border border-cyan-400/30">
+       <div className="bg-cyan-500/80 hover:bg-cyan-400 backdrop-blur-sm text-white p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110 border border-cyan-400/30 flicker-float">
+
+
           <ChevronRight
             className={`h-4 w-4 transition-transform duration-300 ${
               !isFormOpen ? "rotate-180" : ""
