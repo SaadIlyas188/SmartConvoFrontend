@@ -129,6 +129,10 @@
 
 
 
+
+
+
+
 "use client"
 
 import { useState, useEffect } from "react"
@@ -146,6 +150,69 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  // Normalize country codes
+  const normalizeCountryCode = (code: string) => {
+    if (!code) return "OTHER"
+    const upper = code.toUpperCase()
+    if (upper === "PK" || upper === "PAKISTAN") return "PK"
+    return upper
+  }
+
+  // Redirect based on country and action
+  const redirectBasedOnCountry = (countryCode: string, action: "signin" | "signup") => {
+    countryCode = normalizeCountryCode(countryCode)
+    if (action === "signin") {
+      window.location.href = countryCode === "PK"
+        ? "https://pk.dashboard.pentagonai.co"
+        : "https://dashboard.pentagonai.co"
+    } else {
+      window.location.href = countryCode === "PK"
+        ? "https://pk.dashboard.pentagonai.co/signup"
+        : "https://dashboard.pentagonai.co/signup"
+    }
+  }
+
+  // Run location detection on button click
+  const handleClick = (action: "signin" | "signup") => {
+    if (!navigator.geolocation) {
+      alert("Geolocation not supported by your browser.")
+      return
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const { latitude, longitude } = position.coords
+        try {
+          const res = await fetch(
+            `https://geocode.xyz/${latitude},${longitude}?geoit=json`
+          )
+          const data = await res.json()
+
+          // Use country code if available, else fallback to IP
+          let country = data.country
+          if (!country || country === "") {
+            const ipRes = await fetch("https://ipapi.co/json/")
+            const ipData = await ipRes.json()
+            country = ipData.country_code || "OTHER"
+          }
+
+          redirectBasedOnCountry(country, action)
+        } catch (err) {
+          // fallback to IP-based
+          fetch("https://ipapi.co/json/")
+            .then((res) => res.json())
+            .then((data) => redirectBasedOnCountry(data.country_code || "OTHER", action))
+            .catch(() => alert("Unable to detect location."))
+        }
+      },
+      () => {
+        alert("Location permission is required to proceed.")
+      },
+      { enableHighAccuracy: true }
+    )
+  }
+
+
   const navItems = [
     { label: "Home", href: "/" },
     { label: "Industries", href: "/industries" },
@@ -162,7 +229,6 @@ export function Header() {
       }`}
     >
       <div className="flex items-center justify-between px-10 py-4 relative">
-        {/* ✅ Logo */}
         <Link href="/" className="flex items-center gap-2 hover:opacity-90 transition-all ml-2 relative z-10">
           <Image
             src="/logo.png"
@@ -174,7 +240,6 @@ export function Header() {
           />
         </Link>
 
-        {/* ✅ Center Navigation */}
         <nav className="hidden md:flex items-center gap-8 relative">
           {navItems.map((item) => (
             <Link
@@ -185,7 +250,6 @@ export function Header() {
               className={`relative text-foreground/80 px-3 py-2 font-medium transition-all duration-500 rounded-xl
                 ${hoveredItem === item.label ? "text-cyan-300" : "hover:text-cyan-400"}`}
             >
-              {/* Cyan glow halo */}
               <span
                 className="absolute inset-0 rounded-xl bg-cyan-400/10 blur-xl opacity-0 transition-all duration-700 ease-out"
                 style={{
@@ -201,26 +265,24 @@ export function Header() {
           ))}
         </nav>
 
-        {/* ✅ Right-side Buttons */}
         <div className="flex items-center gap-3 relative z-10">
           <Button
             variant="ghost"
             size="sm"
             className="text-foreground/80 hover:text-cyan-300 hover:bg-cyan-500/10 rounded-xl transition-all duration-300"
-            onClick={() => (window.location.href = "https://smartconvo.netlify.app")}
+            onClick={() => handleClick("signin")}
           >
             Sign In
           </Button>
           <Button
             size="sm"
             className="bg-cyan-500 hover:bg-cyan-600 text-white rounded-xl transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(34,211,238,0.6)]"
-            onClick={() => (window.location.href = "https://smartconvo.netlify.app/signup")}
+            onClick={() => handleClick("signup")}
           >
             Get Started
           </Button>
         </div>
 
-        {/* ✅ Subtle full-header cyan glow on hover */}
         <div
           className="absolute -inset-2 bg-gradient-radial from-transparent via-cyan-500/10 to-transparent opacity-0 rounded-3xl pointer-events-none transition-all duration-700"
           style={{
