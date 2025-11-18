@@ -190,14 +190,24 @@ export function Header() {
 
           // Use country code if available, else fallback to IP
           let country = data.country
-          alert(country)
-          if (!country || country === "") {
-            const ipRes = await fetch("https://ipapi.co/json/")
-            const ipData = await ipRes.json()
-            country = ipData.country_code || "OTHER"
-          }
+          console.log(country)
+          if (!country || country === ""){
 
-          redirectBasedOnCountry(country, action)
+          if (action === "signin") {
+            window.location.href = "https://pk.dashboard.pentagonai.co"
+          } else {
+              window.location.href = "https://pk.dashboard.pentagonai.co/signup"
+          }
+        }
+          // if (!country || country === "") {
+          //   const ipRes = await fetch("https://ipapi.co/json/")
+          //   const ipData = await ipRes.json()
+          //   country = ipData.country_code || "OTHER"
+          // }
+
+          else{
+
+          redirectBasedOnCountry(country, action)}
         } catch (err) {
           // fallback to IP-based
           fetch("https://ipapi.co/json/")
