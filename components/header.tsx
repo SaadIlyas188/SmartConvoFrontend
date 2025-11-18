@@ -190,6 +190,7 @@ export function Header() {
 
           // Use country code if available, else fallback to IP
           let country = data.country
+          alert(country)
           if (!country || country === "") {
             const ipRes = await fetch("https://ipapi.co/json/")
             const ipData = await ipRes.json()
