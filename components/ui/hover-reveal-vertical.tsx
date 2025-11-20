@@ -22,10 +22,13 @@ export function HoverRevealVertical({ children, className = "" }: HoverRevealVer
 
   const revealProgress = useTransform(mouseY, [0, dimensions.height], [0, 100])
 
-  // FIX #1 — useMotionTemplate for clipPath
-  const clipPath = useMotionTemplate`inset(0 0 ${100 - revealProgress}% 0)`
+  // FIX: compute (100 - revealProgress) using useTransform instead of arithmetic
+  const invertedReveal = useTransform(revealProgress, (v) => 100 - v)
 
-  // FIX #2 — top: revealProgress - 40 cannot subtract motionValue; transform instead
+  // FIX: clipPath must use the transform value directly
+  const clipPath = useMotionTemplate`inset(0 0 ${invertedReveal}% 0)`
+
+  // existing fix stays the same
   const glowTop = useTransform(revealProgress, (v) => v - 40)
 
   useEffect(() => {
