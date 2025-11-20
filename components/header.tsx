@@ -199,6 +199,8 @@ export function Header() {
               window.location.href = "https://pk.dashboard.pentagonai.co/signup"
           }
         }
+
+        
           // if (!country || country === "") {
           //   const ipRes = await fetch("https://ipapi.co/json/")
           //   const ipData = await ipRes.json()

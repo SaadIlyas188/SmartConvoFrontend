@@ -86,7 +86,10 @@ export default function AboutPage() {
         {/* Hero Section */}
         <header
           id="intro"
-          ref={(el) => (sectionsRef.current[0] = el)}
+          ref={(el) => {
+  sectionsRef.current[0] = el
+}}
+
           className="min-h-screen flex items-center opacity-0 pt-20"
         >
           <div className="grid lg:grid-cols-5 gap-12 sm:gap-16 w-full">
@@ -144,7 +147,10 @@ export default function AboutPage() {
         </header>
 
         {/* Company Story Timeline */}
-        <section id="story" ref={(el) => (sectionsRef.current[1] = el)} className="min-h-0 py-10 sm:py-16 opacity-0">
+        <section id="story" ref={(el) => {
+  sectionsRef.current[1] = el
+}}
+className="min-h-0 py-10 sm:py-16 opacity-0">
           <div className="space-y-12 sm:space-y-16">
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
               <h2 className="text-4xl sm:text-5xl font-light">Our Journey</h2>
@@ -220,7 +226,10 @@ export default function AboutPage() {
         </section>
 
         {/* Mission & Vision */}
-        <section id="mission" ref={(el) => (sectionsRef.current[2] = el)} className="min-h-0 py-24 sm:py-32 opacity-0">
+        <section id="mission" ref={(el) => {
+  sectionsRef.current[2] = el
+}}
+ className="min-h-0 py-24 sm:py-32 opacity-0">
           <div className="space-y-12 sm:space-y-16">
             <h2 className="text-4xl sm:text-5xl font-light">Mission & Vision</h2>
 
@@ -257,7 +266,10 @@ export default function AboutPage() {
         </section>
 
         {/* Team Capabilities */}
-        <section id="team" ref={(el) => (sectionsRef.current[3] = el)} className="min-h-0 py-20 sm:py-28 opacity-0">
+        <section id="team" ref={(el) => {
+  sectionsRef.current[3] = el
+}}
+className="min-h-0 py-20 sm:py-28 opacity-0">
           <div className="space-y-12 sm:space-y-16">
             <div className="space-y-4">
               <h2 className="text-4xl sm:text-5xl font-light">What We Bring</h2>
@@ -324,7 +336,10 @@ export default function AboutPage() {
         </section>
 
         {/* Core Values */}
-        <section id="values" ref={(el) => (sectionsRef.current[4] = el)} className="py-20 sm:py-28 opacity-0">
+        <section id="values" ref={(el) => {
+  sectionsRef.current[4] = el
+}}
+ className="py-20 sm:py-28 opacity-0">
           <div className="space-y-12 sm:space-y-16">
             <h2 className="text-4xl sm:text-5xl font-light">Our Values</h2>
 
