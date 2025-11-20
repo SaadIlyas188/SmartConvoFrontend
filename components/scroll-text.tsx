@@ -10,7 +10,8 @@ interface ScrollTextProps {
 }
 
 export function ScrollText({ leftText, rightPhrases, className = "" }: ScrollTextProps) {
-  const { scrollDirection, scrollY } = useScrollDirection()
+  const scrollDirection = useScrollDirection()
+
   const [activeIndex, setActiveIndex] = useState(0)
   const [internalScroll, setInternalScroll] = useState(0)
   const containerRef = useRef<HTMLDivElement>(null)
