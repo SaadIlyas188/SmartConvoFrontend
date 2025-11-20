@@ -82,13 +82,23 @@ export default function SmartConvoParticleLogo() {
     }
 
     function createInitialParticles(scale: number) {
-      const baseCount = 7000
-      const particleCount = Math.floor(baseCount * Math.sqrt((canvas.width * canvas.height) / (1920 * 1080)))
-      for (let i = 0; i < particleCount; i++) {
-        const p = createParticle(scale)
-        if (p) particles.push(p)
-      }
-    }
+  const canvasEl = canvasRef.current
+  if (!canvasEl) return
+
+  const baseCount = 7000
+  const particleCount = Math.floor(
+    baseCount *
+      Math.sqrt(
+        (canvasEl.width * canvasEl.height) / (1920 * 1080)
+      )
+  )
+
+  for (let i = 0; i < particleCount; i++) {
+    const p = createParticle(scale)
+    if (p) particles.push(p)
+  }
+}
+
 
     let frameId: number
     function animate(scale: number) {
