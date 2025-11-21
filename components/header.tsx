@@ -244,7 +244,7 @@ export function Header() {
       <div className="flex items-center justify-between px-10 py-4 relative">
         <Link href="/" className="flex items-center gap-2 hover:opacity-90 transition-all ml-2 relative z-10">
           <Image
-            src="/logo.png"
+            src="/Logo.png"
             alt="SmartConvo Logo"
             width={150}
             height={45}
