@@ -88,7 +88,7 @@ export function Footer() {
           <div className="col-span-1 md:col-span-2">
             <Link href="/" className="inline-block mb-4">
               <Image
-                src="/logo.png"
+                src="/Logo.png"
                 alt="Pentagon AI Logo"
                 width={120} // intrinsic width
                 height={30} // intrinsic height

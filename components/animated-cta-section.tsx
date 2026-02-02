@@ -4,6 +4,7 @@ import { useRef } from "react"
 import { Button } from "./ui/button"
 import { ArrowRight } from "lucide-react"
 import { BackgroundPaths } from "./ui/floating-paths"
+import Link from "next/link";
 
 export function AnimatedCTASection() {
   const contentRef = useRef<HTMLDivElement>(null)
@@ -60,13 +61,25 @@ export function AnimatedCTASection() {
             className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up"
             style={{ animationDelay: "0.9s" }}
           >
-            <Button size="lg" className="bg-cyan-500 text-black hover:bg-cyan-400 group">
-              Request a Demo
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 bg-transparent">
-              Explore SmartConvo
-            </Button>
+            <Button
+  size="lg"
+  className="bg-cyan-500 text-black hover:bg-cyan-400 group"
+  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+>
+  Request a Demo
+  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+</Button>
+
+{/* Explore SmartConvo - goes to external dashboard */}
+<Link href="https://dashboard.pentagonai.co" target="_blank" rel="noopener noreferrer">
+  <Button
+    size="lg"
+    variant="outline"
+    className="border-white text-white hover:bg-white/10 bg-transparent"
+  >
+    Explore SmartConvo
+  </Button>
+</Link>
           </div>
         </div>
       </div>

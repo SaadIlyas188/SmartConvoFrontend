@@ -4,8 +4,8 @@ import "./globals.css"
 import ClientLayout from "./ClientLayout"
 
 export const metadata: Metadata = {
-  title: "SmartConvo - by Pentagon AI",
-  description: "Jab sb aapki le rahe ho to aap bhi khuch lelo",
+  title: "Pentagon AI",
+  description: "Revolutionizing Communication with AI-Powered Voice Agents",
   generator: "v0.app",
   icons: {
     icon: "/favicon.ico",       // put your favicon in public/favicon.ico

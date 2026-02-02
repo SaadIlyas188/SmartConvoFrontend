@@ -3,6 +3,7 @@ import { Footer } from "@/components/footer"
 import BeamsBackground from "@/components/beams-background"
 import IndustriesAccordion from "@/components/industries-accordion"
 import IndustriesFeaturesSection from "@/components/industries-features-section"
+import Link from "next/link";
 
 
 export default function IndustriesPage() {
@@ -68,12 +69,17 @@ export default function IndustriesPage() {
         Join hundreds of businesses already using SmartConvo to deliver exceptional customer experiences 24/7.
       </p>
       <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <button className="px-6 py-3 bg-cyan-500 hover:bg-cyan-600 text-black font-medium rounded-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] text-base">
-          Schedule a Demo
-        </button>
-        <button className="px-6 py-3 border border-white/20 hover:border-cyan-500/50 text-white rounded-lg transition-all duration-300 text-base">
-          Contact Sales
-        </button>
+       <Link href="/">
+  <button className="px-6 py-3 bg-cyan-500 hover:bg-cyan-600 text-black font-medium rounded-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] text-base">
+    Schedule a Demo
+  </button>
+</Link>
+
+<Link href="/contact">
+  <button className="px-6 py-3 border border-white/20 hover:border-cyan-500/50 text-white rounded-lg transition-all duration-300 text-base">
+    Contact Us
+  </button>
+</Link>
       </div>
     </div>
   </div>
