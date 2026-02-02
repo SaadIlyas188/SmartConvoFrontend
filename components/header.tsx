@@ -243,15 +243,16 @@ export function Header() {
     >
       <div className="flex items-center justify-between px-10 py-4 relative">
         <Link href="/" className="flex items-center gap-2 hover:opacity-90 transition-all ml-2 relative z-10">
-          <Image
-            src="/Logo.png"
-            alt="SmartConvo Logo"
-            width={150}
-            height={45}
-            priority
-            className="object-contain drop-shadow-[0_0_8px_rgba(34,211,238,0.6)]"
-          />
-        </Link>
+  <Image
+    src="/Logo.png"
+    alt="SmartConvo Logo"
+    width={160}   // was 150
+    height={48}   // was 45
+    priority
+    className="object-contain"
+  />
+</Link>
+
 
         <nav className="hidden md:flex items-center gap-8 relative">
           {navItems.map((item) => (
