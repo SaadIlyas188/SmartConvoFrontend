@@ -1,9 +1,11 @@
 "use client"
 
+
 import type React from "react"
 import { motion } from "framer-motion"
 import { HoverRevealVertical } from "@/components/hover-reveal-vertical"
 import { AnimatedGradient } from "@/components/ui/animated-gradient-with-svg"
+
 
 interface BentoCardProps {
   title: string
@@ -13,6 +15,7 @@ interface BentoCardProps {
   delay: number
   hoverEffect?: boolean
 }
+
 
 const BentoCard: React.FC<BentoCardProps> = ({ title, value, subtitle, colors, delay, hoverEffect }) => {
   const container = {
@@ -26,10 +29,12 @@ const BentoCard: React.FC<BentoCardProps> = ({ title, value, subtitle, colors, d
     },
   }
 
+
   const item = {
     hidden: { opacity: 0 },
     show: { opacity: 1, transition: { duration: 0.5 } },
   }
+
 
   const cardContent = (
     <motion.div
@@ -52,6 +57,7 @@ const BentoCard: React.FC<BentoCardProps> = ({ title, value, subtitle, colors, d
     </motion.div>
   )
 
+
   return (
     <motion.div
       className="relative overflow-hidden h-full bg-black rounded-lg border border-border/20 group hover:border-[#00e5ff]/30 transition-colors duration-500"
@@ -69,11 +75,14 @@ const BentoCard: React.FC<BentoCardProps> = ({ title, value, subtitle, colors, d
         cardContent
       )}
 
+
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-[#00e5ff]/5 via-transparent to-transparent" />
       </div>
 
+
       <AnimatedGradient colors={colors} speed={0.05} blur="medium" />
+
 
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none">
         <div
@@ -85,6 +94,7 @@ const BentoCard: React.FC<BentoCardProps> = ({ title, value, subtitle, colors, d
           }}
         />
       </div>
+
 
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
         <div
@@ -98,12 +108,14 @@ const BentoCard: React.FC<BentoCardProps> = ({ title, value, subtitle, colors, d
         />
       </div>
 
+
       <div className="absolute inset-0 opacity-80 transition-opacity duration-500">
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full animate-[shine_4s_ease-in-out_infinite] w-[200%]" />
       </div>
     </motion.div>
   )
 }
+
 
 export function AnimatedFeaturesSection() {
   return (
@@ -121,6 +133,7 @@ export function AnimatedFeaturesSection() {
         </defs>
       </svg>
 
+
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2
@@ -128,14 +141,15 @@ export function AnimatedFeaturesSection() {
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             <span className="bg-gradient-to-r from-white via-[#00e5ff] to-white bg-clip-text text-transparent animate-pulse">
-              Powerful Features
+              SmartConvo Features
             </span>
             <div className="absolute inset-0 blur-xl bg-gradient-to-r from-transparent via-[#00e5ff]/20 to-transparent animate-pulse" />
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Everything you need to take your business to the next level
+            Our flagship AI voice agent solution — everything you need to transform your business communication
           </p>
         </div>
+
 
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-[600px]">
@@ -151,6 +165,7 @@ export function AnimatedFeaturesSection() {
             />
           </div>
 
+
           {/* No hover effect */}
           <BentoCard
             title="Smart Booking"
@@ -161,6 +176,7 @@ export function AnimatedFeaturesSection() {
             hoverEffect={false}
           />
 
+
           {/* Hover effect added here */}
           <BentoCard
             title="Response Time"
@@ -170,6 +186,7 @@ export function AnimatedFeaturesSection() {
             delay={0.6}
             hoverEffect={true}
           />
+
 
           {/* Hover effect added here */}
           <div className="md:col-span-2">
@@ -182,6 +199,7 @@ export function AnimatedFeaturesSection() {
               hoverEffect={true}
             />
           </div>
+
 
           {/* No hover effect */}
           <div className="md:col-span-3">

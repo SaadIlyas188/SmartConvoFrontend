@@ -40,23 +40,22 @@ export function HeroSection() {
           </div>
         ) : (
           <ParticleTextEffect
-            words={["SMART CONVO", "VOICE AGENTS", "PENTAGON AI"]}
+            words={["PENTAGON AI", "VOICE AGENTS", "SMART CONVO"]}
           />
         )}
       </div>
 
       {/* Content */}
-      <div className="container mx-auto text-center relative z-10 pb-8">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 text-balance">
-            The Future of{" "}
-            <span className="text-cyan-400">Customer Communication</span>
-          </h2>
+<div className="container mx-auto text-center relative z-10 pb-8">
+  <div className="max-w-4xl mx-auto">
+    <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 text-balance">
+      The Future of{" "}
+      <span className="text-cyan-400">Artificial Intelligence</span>
+    </h2>
 
-          <p className="text-lg text-neutral-400 mb-8 max-w-2xl mx-auto">
-            AI voice and communication agents that answer every call, book every
-            appointment, and never miss an opportunity.
-          </p>
+    <p className="text-lg text-neutral-400 mb-8 max-w-2xl mx-auto">
+      Enterprise-grade AI solutions that transform operations, empower teams, and unlock new possibilities across every industry.
+    </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             {/* ✅ "Request a Demo" button now toggles same form */}
@@ -72,7 +71,7 @@ export function HeroSection() {
             <Button
               size="lg"
               variant="outline"
-              onClick={() => window.open("https://smartconvo.netlify.app", "_blank")}
+              onClick={() => window.open("https://dashboard.pentagonai.co/", "_blank")}
               className="border-neutral-600 text-white bg-black hover:bg-neutral-800 hover:text-white transition-colors duration-300"
             >
               Start Now

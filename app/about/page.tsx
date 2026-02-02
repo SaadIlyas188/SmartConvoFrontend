@@ -97,9 +97,9 @@ export default function AboutPage() {
               <div className="space-y-3 sm:space-y-2">
                 <div className="text-sm text-white/50 font-mono tracking-wider">ABOUT US / 2025</div>
                 <h1 className="text-6xl sm:text-7xl lg:text-8xl font-light tracking-tight">
-                  SmartConvo
+                  Pentagon AI
                   <br />
-                  <span className="text-white/50">by Pentagon AI</span>
+                  {/* <span className="text-white/50">by Pentagon AI</span> */}
                 </h1>
               </div>
 
@@ -113,7 +113,7 @@ export default function AboutPage() {
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 text-base text-white/60">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-cyan-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(6,182,212,0.6)]"></div>
-                    Serving 500+ businesses
+                    Industry-agnostic AI solutions
                   </div>
                   <div>Toronto, Canada</div>
                 </div>
@@ -132,7 +132,7 @@ export default function AboutPage() {
               <div className="space-y-4">
                 <div className="text-sm text-white/50 font-mono">INDUSTRIES</div>
                 <div className="flex flex-wrap gap-2">
-                  {["Restaurants", "Automotive", "Legal", "Healthcare"].map((industry) => (
+                  {["Government", "Enterprise", "Restaurants", "Healthcare", "Hospitality", "Automotive"].map((industry) => (
                     <span
                       key={industry}
                       className="px-3 py-1 text-sm border border-white/20 rounded-full hover:border-cyan-500/50 hover:text-cyan-400 transition-all duration-300"
@@ -180,7 +180,7 @@ className="min-h-0 py-10 sm:py-16 opacity-0">
                   milestone: "Launch",
                   title: "Pentagon AI Founded",
                   description: "Started with a vision to make AI-powered communication accessible to every business.",
-                  metrics: ["Seed Funding", "First 10 Clients", "Toronto HQ"],
+                  metrics: ["Pre-seed Funding", "First 10 Clients", "Toronto HQ"],
                 },
               ].map((item, index) => (
                 <div
@@ -219,51 +219,64 @@ className="min-h-0 py-10 sm:py-16 opacity-0">
 
         {/* ScrollText Section */}
         <section className="min-h-0 py-20 sm:py-24">
-          <ScrollText
-            leftText="SmartConvo AI"
-            rightPhrases={["Thinks Human", "Talks Smarter", "Never Sleeps", "Learns Fast", "Redefines Voice"]}
-          />
-        </section>
+  <ScrollText
+    leftText="Pentagon AI"
+    rightPhrases={[
+      "Builds Intelligence",
+      "Powers Solutions", 
+      "Transforms Business",
+      "Delivers Innovation",
+      "Serves Excellence"
+    ]}
+  />
+</section>
+
 
         {/* Mission & Vision */}
-        <section id="mission" ref={(el) => {
+        {/* Mission & Vision */}
+<section id="mission" ref={(el) => {
   sectionsRef.current[2] = el
 }}
  className="min-h-0 py-24 sm:py-32 opacity-0">
-          <div className="space-y-12 sm:space-y-16">
-            <h2 className="text-4xl sm:text-5xl font-light">Mission & Vision</h2>
+  <div className="space-y-12 sm:space-y-16">
+    <h2 className="text-4xl sm:text-5xl font-light">Mission & Vision</h2>
 
-            <div className="grid gap-6 sm:gap-8 lg:grid-cols-2">
-              {[
-                {
-                  title: "Our Mission",
-                  content:
-                    "To empower businesses with intelligent voice communication that never sleeps, never misses a call, and always delivers exceptional customer experiences.",
-                  icon: "🎯",
-                },
-                {
-                  title: "Our Vision",
-                  content:
-                    "A world where every business, regardless of size, has access to enterprise-grade AI communication tools that drive growth and customer satisfaction.",
-                  icon: "🚀",
-                },
-              ].map((item, index) => (
-                <div
-                  key={index}
-                  className="group p-6 sm:p-8 border border-white/10 rounded-lg hover:border-cyan-500/30 transition-all duration-500 hover:shadow-[0_0_30px_rgba(6,182,212,0.1)]"
-                >
-                  <div className="space-y-4">
-                    <div className="text-4xl">{item.icon}</div>
-                    <h3 className="text-xl sm:text-2xl font-medium group-hover:text-cyan-400 transition-colors duration-300">
-                      {item.title}
-                    </h3>
-                    <p className="text-base text-white/60 leading-relaxed">{item.content}</p>
-                  </div>
-                </div>
-              ))}
+    <div className="grid gap-6 sm:gap-8 lg:grid-cols-2">
+      {[
+        {
+          title: "Our Mission",
+          content:
+            "To empower organizations with cutting-edge AI solutions that transform operations, enhance customer experiences, and drive measurable business outcomes across every industry.",
+        },
+        {
+          title: "Our Vision",
+          content:
+            "A world where artificial intelligence is accessible to all, enabling businesses of every size to compete globally with enterprise-grade AI tools that were once reserved for Fortune 500 companies.",
+        },
+      ].map((item, index) => (
+        <div
+          key={index}
+          className="group relative p-8 sm:p-10 border border-white/10 rounded-2xl hover:border-cyan-500/30 transition-all duration-500 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] bg-gradient-to-br from-white/5 to-transparent overflow-hidden"
+        >
+          {/* Animated gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 via-cyan-500/0 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          
+          {/* Content */}
+          <div className="relative space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-1 h-8 bg-gradient-to-b from-cyan-400 to-cyan-600 rounded-full" />
+              <h3 className="text-xl sm:text-2xl font-medium group-hover:text-cyan-400 transition-colors duration-300">
+                {item.title}
+              </h3>
             </div>
+            <p className="text-base text-white/70 leading-relaxed pl-7">{item.content}</p>
           </div>
-        </section>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
 
         {/* Team Capabilities */}
         <section id="team" ref={(el) => {

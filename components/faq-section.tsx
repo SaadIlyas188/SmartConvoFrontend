@@ -6,44 +6,44 @@ import { ChevronDown } from "lucide-react"
 
 const faqs = [
   {
-    question: "What is SmartConvo and how does it work?",
+    question: "How will my business receive orders that SmartConvo takes?",
     answer:
-      "SmartConvo is Pentagon AI's flagship AI voice communication platform that uses advanced natural language processing to handle customer calls, bookings, and inquiries 24/7. It integrates seamlessly with your existing systems and learns from every interaction to provide increasingly personalized customer experiences.",
+      "SmartConvo can place orders directly through an API connection to your POS system or printer. You can also receive orders through our dashboard. All orders are processed in real-time and sent to your existing systems seamlessly.",
   },
   {
-    question: "Which industries does SmartConvo support?",
+    question: "Can SmartConvo process payments over the phone?",
     answer:
-      "SmartConvo is designed for multiple industries including restaurants (reservations and orders), automotive (service bookings), legal (client intake), and healthcare (appointment scheduling). Our AI agents are trained with industry-specific knowledge to handle specialized workflows and terminology.",
+      "Yes, SmartConvo can send secure payment links via SMS or process card details directly through your POS using an encrypted connection. This ensures safe payment processing for all phone orders while maintaining PCI compliance.",
+  },
+  {
+    question: "How will SmartConvo handle customers who struggle to speak English?",
+    answer:
+      "SmartConvo is trained to understand many accents, including South Asian, East Asian, Caribbean, and more. It ensures clear communication for customers whose first language isn't English, making your service accessible to diverse communities.",
+  },
+  {
+    question: "Which industries and businesses does Pentagon AI currently serve?",
+    answer:
+      "We are currently serving government agencies and expanding to restaurants, healthcare clinics, automotive service centers, and legal firms. More industries are being added regularly as we grow our AI capabilities and integrations.",
+  },
+  {
+    question: "How would you provide us with support, and do we need to pay for it?",
+    answer:
+      "The complete onboarding process takes 5 days and requires only 45 minutes of your time. This includes filling out an onboarding form, a clarity call with your AI engineer, and 3 days of training and integration. Ongoing support is included in all plans.",
+  },
+  {
+    question: "Will I be able to see a report of how SmartConvo is doing?",
+    answer:
+      "You'll get a lifetime private chat with our team as soon as you sign up. This lets you ask questions, give feedback, or schedule direct calls with our developers for free - no chatbots or long wait times. Plus, you'll have access to detailed analytics dashboards.",
   },
   {
     question: "How quickly can I get started with SmartConvo?",
     answer:
-      "You can be up and running in as little as 24 hours. After signing up, our team will help you configure your AI voice agent, integrate with your existing systems, and train it on your specific business needs. We offer a 14-day free trial so you can experience the benefits risk-free.",
+      "You can be up and running in as little as 5 days. After signing up, our team will configure your AI voice agent, integrate with your existing systems, and train it on your specific business needs. We offer a free trial so you can experience the benefits risk-free.",
   },
   {
-    question: "Is my customer data secure with Pentagon AI?",
+    question: "Can I customize the AI voice and conversation style?",
     answer:
-      "Absolutely. We use bank-level encryption, comply with GDPR, HIPAA, and SOC 2 Type II standards. All customer data is encrypted in transit and at rest. We never share your data with third parties, and you maintain complete ownership of all customer interactions and information.",
-  },
-  {
-    question: "Can SmartConvo integrate with my existing tools?",
-    answer:
-      "Yes! SmartConvo integrates with popular CRM systems, booking platforms, calendars, and communication tools. We support integrations with Salesforce, HubSpot, Google Calendar, Microsoft 365, Slack, and many more. Custom integrations are available for Enterprise plans.",
-  },
-  {
-    question: "What happens if the AI can't handle a call?",
-    answer:
-      "SmartConvo is designed to handle 95%+ of routine calls autonomously. For complex situations, it can seamlessly transfer to a human agent with full context of the conversation. You can also set custom escalation rules based on keywords, sentiment, or specific scenarios.",
-  },
-  {
-    question: "How does pricing work for SmartConvo?",
-    answer:
-      "We offer transparent, usage-based pricing with three tiers: Starter (up to 500 calls/month), Professional (up to 2,000 calls/month), and Enterprise (unlimited). All plans include a 14-day free trial with no credit card required. You can upgrade, downgrade, or cancel anytime.",
-  },
-  {
-    question: "Can I customize the AI voice and personality?",
-    answer:
-      "Yes! You can customize your AI agent's voice, tone, personality, and conversation style to match your brand. Choose from multiple voice options, set response patterns, and define how the AI should handle different scenarios. Enterprise customers can even create fully custom AI personalities.",
+      "Yes! You can customize your AI agent's voice, tone, personality, and conversation style to match your brand. Choose from multiple voice options, set response patterns, and define how the AI should handle different scenarios to create the perfect customer experience.",
   },
 ]
 
