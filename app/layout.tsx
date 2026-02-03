@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   description: "Revolutionizing Communication with AI-Powered Voice Agents",
   generator: "v0.app",
   icons: {
-    icon: "/favicon.ico",       // put your favicon in public/favicon.ico
-    shortcut: "/favicon.ico",   // optional, for shortcut icon
+    icon: "/favicon.jpeg",       // put your favicon in public/favicon.ico
+    shortcut: "/favicon.jpeg",   // optional, for shortcut icon
     apple: "/apple-touch-icon.png" // optional, for iOS devices
   }
 }
