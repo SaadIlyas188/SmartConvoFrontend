@@ -166,7 +166,7 @@ className="min-h-0 py-10 sm:py-16 opacity-0">
                   title: "Multi-Industry Growth",
                   description:
                     "Expanded to serve healthcare, legal, and automotive sectors with specialized AI voice solutions.",
-                  metrics: ["500+ Active Clients", "99.9% Uptime", "50M+ Conversations"],
+                  metrics: [],
                 },
                 {
                   year: "2024",
@@ -174,14 +174,14 @@ className="min-h-0 py-10 sm:py-16 opacity-0">
                   title: "Restaurant Revolution",
                   description:
                     "Launched industry-first AI reservation and ordering system, transforming restaurant operations.",
-                  metrics: ["200+ Restaurants", "24/7 Availability", "40% Cost Reduction"],
+                  metrics: [],
                 },
                 {
                   year: "2023",
                   milestone: "Launch",
                   title: "Pentagon AI Founded",
                   description: "Started with a vision to make AI-powered communication accessible to every business.",
-                  metrics: ["Pre-seed Funding", "First 10 Clients", "Toronto HQ"],
+                  metrics: [],
                 },
               ].map((item, index) => (
                 <div

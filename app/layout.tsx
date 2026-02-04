@@ -6,7 +6,7 @@ import ClientLayout from "./ClientLayout"
 export const metadata: Metadata = {
   title: "Pentagon AI",
   description: "Revolutionizing Communication with AI-Powered Voice Agents",
-  generator: "v0.app",
+  generator: "",
   icons: {
     icon: "/favicon.jpeg",       // put your favicon in public/favicon.ico
     shortcut: "/favicon.jpeg",   // optional, for shortcut icon
