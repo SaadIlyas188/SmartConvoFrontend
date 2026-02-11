@@ -74,10 +74,8 @@
 //   )
 // }
 
-
 import Image from "next/image"
 import Link from "next/link"
-
 
 export function Footer() {
   return (
@@ -108,9 +106,9 @@ export function Footer() {
             <h3 className="text-sm font-semibold text-white mb-4">Product</h3>
             <ul className="space-y-2 text-sm text-white/70">
               <li>
-                <Link href="/#features" className="hover:text-cyan-400 transition-colors">
+                {/* <Link href="/#features" className="hover:text-cyan-400 transition-colors">
                   Features
-                </Link>
+                </Link> */}
               </li>
               <li>
                 <Link href="/industries" className="hover:text-cyan-400 transition-colors">
@@ -118,9 +116,9 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/#pricing" className="hover:text-cyan-400 transition-colors">
+                {/* <Link href="/#pricing" className="hover:text-cyan-400 transition-colors">
                   Pricing
-                </Link>
+                </Link> */}
               </li>
             </ul>
           </div>
@@ -143,9 +141,21 @@ export function Footer() {
           </div>
         </div>
 
+        {/* ---- Legal Links ---- */}
+        <div className="border-t border-white/10 mt-8 pt-8">
+          <div className="flex flex-wrap justify-center gap-6 text-sm text-white/50 mb-4">
+            <Link href="/terms-and-conditions" className="hover:text-cyan-400 transition-colors">
+              Terms & Conditions
+            </Link>
+            <Link href="/privacy-policy" className="hover:text-cyan-400 transition-colors">
+              Privacy Policy
+            </Link>
+          </div>
+        </div>
+
         {/* ---- Bottom copyright ---- */}
-        <div className="border-t border-white/10 mt-8  pt-8 text-center text-sm text-white/50">
-          <p>&copy; 2025 Pentagon AI. All rights reserved.</p>
+        <div className="text-center text-sm text-white/50">
+          <p>&copy; 2026 Pentagon AI. All rights reserved.</p>
         </div>
       </div>
     </footer>
